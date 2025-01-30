@@ -25,6 +25,8 @@ public class TargetLocator : MonoBehaviour
 
     void AimWeapon()
     {
+        if (target == null) return;
+
         float targetDistance = Vector3.Distance(target.position, transform.position);
 
         weapon.LookAt(target);
@@ -47,7 +49,7 @@ public class TargetLocator : MonoBehaviour
 
         float maxDistance = Mathf.Infinity;
 
-        foreach(EnemyController enemy in enemies)
+        foreach (EnemyController enemy in enemies)
         {
             float targetDistance = Vector3.Distance(enemy.transform.position, transform.position);
 
