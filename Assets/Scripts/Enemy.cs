@@ -30,6 +30,6 @@ public class Enemy : MonoBehaviour
     public void PenaltyCoins()
     {
         if (bank == null) { return; }
-        bank.Deposit(coinPenalty);
+        bank.Withdraw(coinPenalty);
     }
 }

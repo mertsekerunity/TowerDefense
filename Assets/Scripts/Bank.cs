@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class Bank : MonoBehaviour
 {
     [SerializeField] int startingBalance = 150;
     [SerializeField] int currentBalance;
+    [SerializeField] TextMeshProUGUI displayBalance;
 
     public int CurrentBalance
     {
@@ -16,6 +18,7 @@ public class Bank : MonoBehaviour
     private void Awake()
     {
         currentBalance = startingBalance;
+        UpdateDisplay();
     }
 
     // Start is called before the first frame update
@@ -33,13 +36,15 @@ public class Bank : MonoBehaviour
     public void Deposit(int amount)
     {
         currentBalance += Mathf.Abs(amount);
+        UpdateDisplay();
     }
 
     public void Withdraw(int amount)
     {
         currentBalance -= Mathf.Abs(amount);
+        UpdateDisplay();
 
-        if(currentBalance < 0)
+        if (currentBalance < 0)
         {
             ReloadScene(); //show game over screen
         }
@@ -48,5 +53,10 @@ public class Bank : MonoBehaviour
     void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void UpdateDisplay()
+    {
+        displayBalance.text = "Coins: " + currentBalance;
     }
 }
