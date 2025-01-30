@@ -501,7 +501,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 80
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5212,6 +5212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 2313696064789012230}
+  projectilePrefab: {fileID: 2657502122184908503}
+  range: 100
 --- !u!1 &6386450416054915563
 GameObject:
   m_ObjectHideFlags: 0
