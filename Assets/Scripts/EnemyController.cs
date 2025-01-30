@@ -8,12 +8,11 @@ public class EnemyController : MonoBehaviour
     List<Waypoint> path = new List<Waypoint>();
     [SerializeField][Range(0, 5)] float speed = 1f;
 
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         FindPath();
+        ReturnToStart();
         StartCoroutine(FollowPath());
-        //ReturnToStart();
     }
 
     // Update is called once per frame
@@ -66,6 +65,6 @@ public class EnemyController : MonoBehaviour
 
     void FinishPath()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
