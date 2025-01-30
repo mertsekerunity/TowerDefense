@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 742823662115395013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaceable: 1
-  towerPrefab: {fileID: 4902719516545802510, guid: 1741f975c1a618a4483e02a3f565d68d,
+  towerPrefab: {fileID: 7754774540907174, guid: 1741f975c1a618a4483e02a3f565d68d,
     type: 3}
 --- !u!65 &4455452284645165594
 BoxCollider:

@@ -19,6 +19,7 @@ public class Waypoint : MonoBehaviour
     {
         if (isPlaceable)
         {
+            Debug.Log("test");
             bool isPlaced = towerPrefab.CreateTower(towerPrefab, transform.position);
             isPlaceable = !isPlaced;
         }
