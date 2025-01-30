@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] List<Transform> path = new List<Transform>();
+    //[SerializeField] List<Waypoint> path = new List<Waypoint>();
+    List<Waypoint> path = new List<Waypoint>();
     [SerializeField][Range(0, 5)] float speed = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        FindPath();
         StartCoroutine(FollowPath());
+        //ReturnToStart();
     }
 
     // Update is called once per frame
@@ -21,9 +24,8 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-        foreach (Transform tiles in path)
+        foreach (Waypoint tiles in path)
         {
-            Debug.Log(tiles.name);
             Vector3 startPosition = transform.position;
             Vector3 endPosition = tiles.transform.position;
             float travelPercent = 0;
@@ -37,5 +39,33 @@ public class EnemyController : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+        FinishPath();
+    }
+
+    void FindPath()
+    {
+        path.Clear();
+
+        GameObject parent = GameObject.FindGameObjectWithTag("Path");
+
+        foreach (Transform child in parent.transform)
+        {
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+            
+           if(waypoint != null)
+            {
+                path.Add(waypoint);
+            }
+        }
+    }
+
+    void ReturnToStart()
+    {
+        transform.position = path[0].transform.position;
+    }
+
+    void FinishPath()
+    {
+        Destroy(gameObject);
     }
 }
