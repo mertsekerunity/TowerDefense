@@ -8,6 +8,13 @@ public class EnemyController : MonoBehaviour
     List<Waypoint> path = new List<Waypoint>();
     [SerializeField][Range(0, 5)] float speed = 1f;
 
+    Enemy enemy;
+
+    private void Start()
+    {
+        enemy = GetComponent<Enemy>();
+    }
+
     void OnEnable()
     {
         FindPath();
@@ -66,5 +73,6 @@ public class EnemyController : MonoBehaviour
     void FinishPath()
     {
         gameObject.SetActive(false);
+        enemy.PenaltyCoins();
     }
 }

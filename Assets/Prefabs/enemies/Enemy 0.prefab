@@ -565,6 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4978875335508489996}
   - component: {fileID: 1487462551423262502}
+  - component: {fileID: 1923787366080718329}
   m_Layer: 0
   m_Name: Enemy 0
   m_TagString: Untagged
@@ -600,16 +601,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31b8a71ae19b8b4c8c6082c15cf2f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   speed: 1
+--- !u!114 &1923787366080718329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820824615855271874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68299dd45ed4de148a9ffefe4bae9be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinReward: 25
+  coinPenalty: 25
 --- !u!1 &7374847081093194462
 GameObject:
   m_ObjectHideFlags: 0
