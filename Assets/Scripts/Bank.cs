@@ -46,7 +46,7 @@ public class Bank : MonoBehaviour
 
         if (currentBalance < 0)
         {
-            ReloadScene(); //show game over screen
+            //ReloadScene(); //show game over screen
         }
     }
 
