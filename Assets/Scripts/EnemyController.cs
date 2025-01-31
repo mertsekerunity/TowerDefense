@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    //[SerializeField] List<Waypoint> path = new List<Waypoint>();
-    List<Waypoint> path = new List<Waypoint>();
+    List<Node> path = new List<Node>();
     [SerializeField][Range(0, 5)] float speed = 1f;
 
     Enemy enemy;
+    GridManager gridManager;
+    Pathfinder pathfinder;
 
-    private void Start()
+    private void Awake()
     {
+        gridManager = FindObjectOfType<GridManager>();
+        pathfinder = FindObjectOfType<Pathfinder>();
         enemy = GetComponent<Enemy>();
     }
 
@@ -30,10 +33,10 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-        foreach (Waypoint tiles in path)
+        for (int i = 0; i < path.Count; i++)
         {
             Vector3 startPosition = transform.position;
-            Vector3 endPosition = tiles.transform.position;
+            Vector3 endPosition = gridManager.GetPositionFromCoordinates(path[i].coordinates);
             float travelPercent = 0;
 
             transform.LookAt(endPosition);
@@ -52,22 +55,12 @@ public class EnemyController : MonoBehaviour
     {
         path.Clear();
 
-        GameObject parent = GameObject.FindGameObjectWithTag("Path");
-
-        foreach (Transform child in parent.transform)
-        {
-            Waypoint waypoint = child.GetComponent<Waypoint>();
-            
-           if(waypoint != null)
-            {
-                path.Add(waypoint);
-            }
-        }
+        path = pathfinder.GetNewPath();
     }
 
     void ReturnToStart()
     {
-        transform.position = path[0].transform.position;
+        transform.position = gridManager.GetPositionFromCoordinates(pathfinder.StartCoordinates);
     }
 
     void FinishPath()

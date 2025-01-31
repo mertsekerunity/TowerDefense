@@ -15,7 +15,7 @@ public class CoordinateLabeler : MonoBehaviour
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
 
-    Waypoint waypoint;
+    Tile waypoint;
 
     GridManager gridManager;
 
@@ -26,7 +26,7 @@ public class CoordinateLabeler : MonoBehaviour
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
 
-        waypoint = GetComponentInParent<Waypoint>();
+        waypoint = GetComponentInParent<Tile>();
 
         DisplayCoordinates(); //for play mode
     }
