@@ -38,8 +38,7 @@ public class Pathfinder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BreadthFirstSearch();
-        BuildPath();
+        GetNewPath();
     }
 
     // Update is called once per frame
@@ -151,5 +150,10 @@ public class Pathfinder : MonoBehaviour
 
         }
         return false;
+    }
+
+    public void NotifyReceivers()
+    {
+        BroadcastMessage("RecalculatePath", SendMessageOptions.DontRequireReceiver);
     }
 }

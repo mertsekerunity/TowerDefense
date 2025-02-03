@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
     void OnEnable()
     {
-        FindPath();
+        RecalculatePath();
         ReturnToStart();
         StartCoroutine(FollowPath());
     }
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
         FinishPath();
     }
 
-    void FindPath()
+    void RecalculatePath()
     {
         path.Clear();
 
